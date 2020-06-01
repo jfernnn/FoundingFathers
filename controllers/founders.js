@@ -3,7 +3,8 @@ const Founder = require('../models/founder');
 module.exports = {
     index,
     new: newFounder,
-    create
+    create,
+    show
 }
 
 function index(req, res) {
@@ -17,7 +18,10 @@ function index(req, res) {
 }
 
 function newFounder(req, res) {
-    res.render('founders/new', {title: "New Founder"});
+    res.render('founders/new', {
+        title: "New Founder",
+        user: req.user
+    });
 }
 
 function create(req, res) {
@@ -26,4 +30,15 @@ function create(req, res) {
     founder.save(function(err){
         res.redirect('/founders');
     })
+}
+
+function show(req, res) {
+    Founder.findById(req.params.id, function(err, founder){
+        res.render(`founders/show`, {
+            title: 'Show Founder',
+            user: req.user,
+            founder
+        })
+    })
+    
 }

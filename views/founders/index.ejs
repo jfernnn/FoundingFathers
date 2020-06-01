@@ -13,7 +13,7 @@
     <tbody>
         <% founders.forEach(function(f){ %>
             <tr id="info">
-                <td><%= f.name %></td>
+                <td><a href="/founders/<%= f.id %>"><%= f.name %></a></td>
                 <td><%= f.wasPresident %></td>
                 <td><%= f.birthDay %></td>
                 <td><%= f.homeState %></td>

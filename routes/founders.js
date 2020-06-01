@@ -4,4 +4,8 @@ const foundersCtrl = require('../controllers/founders');
 
 /* GET users listing. */
 router.get('/', foundersCtrl.index);
+router.get('/new', foundersCtrl.new);
+router.get('/:id', foundersCtrl.show);
+router.post('/', foundersCtrl.create);
+
 module.exports = router;
