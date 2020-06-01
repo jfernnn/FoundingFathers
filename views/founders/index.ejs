@@ -3,6 +3,7 @@
 <table id="list">
     <thead>
         <tr id="heading">
+            <th></th>
             <th>Name</th>
             <th>President?</th>
             <th>Birth Day</th>
@@ -13,6 +14,12 @@
     <tbody>
         <% founders.forEach(function(f){ %>
             <tr id="info">
+                <td>
+                    <form action="/founders/<%= f.id %>?_method=DELETE"
+                        class="delete-form" method="POST">
+                        <button type="submit">X</button>
+                    </form>
+                </td>
                 <td><a href="/founders/<%= f.id %>"><%= f.name %></a></td>
                 <td><%= f.wasPresident %></td>
                 <td><%= f.birthDay %></td>

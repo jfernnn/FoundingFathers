@@ -4,7 +4,8 @@ module.exports = {
     index,
     new: newFounder,
     create,
-    show
+    show,
+    delete: deleteFounder
 }
 
 function index(req, res) {
@@ -40,5 +41,10 @@ function show(req, res) {
             founder
         })
     })
-    
+}
+
+function deleteFounder(req, res) {
+    Founder.findById(req.params.id, function(err, founder){
+        res.redirect('/founders');
+    })
 }
