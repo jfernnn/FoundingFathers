@@ -8,7 +8,11 @@ module.exports = {
 
 function index(req, res) {
     Founder.find({}, function(err, founders){
-        res.render('founders/index', {title: 'View Founders', founders})
+        res.render('founders/index', {
+            title: 'View Founders', 
+            founders,
+            user: req.user
+        })
     })
 }
 

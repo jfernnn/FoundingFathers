@@ -10,3 +10,5 @@ const founderSchema = new Schema({
 }, {
     timestamps: true
 })
+
+module.exports = mongoose.model('Founder', founderSchema);
