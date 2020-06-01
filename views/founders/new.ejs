@@ -1,0 +1,17 @@
+<%- include('../partials/header') %>
+
+<form id="new-form" action="/founders" method="POST">
+  <label>Name:</label>
+  <input type="text" name="name">
+  <label>Home State:</label>
+  <input type="text" name="homeState">
+  <label>Was He a President:</label>
+  <input type="text" name="wasPresident">
+  <label>Birthday:</label>
+  <input type="date" name="birthDay">
+  <label>Bio:</label>
+  <input type="text" name="bio">
+  <input type="submit" value="Add Founder">
+</form>
+
+<%- include('../partials/footer') %>

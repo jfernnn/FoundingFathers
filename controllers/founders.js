@@ -2,7 +2,8 @@ const Founder = require('../models/founder');
 
 module.exports = {
     index,
-    new: newFounder
+    new: newFounder,
+    create
 }
 
 function index(req, res) {
@@ -13,4 +14,12 @@ function index(req, res) {
 
 function newFounder(req, res) {
     res.render('founders/new', {title: "New Founder"});
+}
+
+function create(req, res) {
+    const founder = new Founder(req.body);
+    console.log(req.body);
+    founder.save(function(err){
+        res.redirect('/founders');
+    })
 }
