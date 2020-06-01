@@ -1,9 +1,9 @@
 var express = require('express');
 var router = express.Router();
+const foundersCtrl = require('../controllers/founders');
 
 /* GET users listing. */
-router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
-});
+router.get('/', foundersCtrl.index);
+router.get('/new', foundersCtrl.new);
 
 module.exports = router;

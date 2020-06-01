@@ -1,0 +1,26 @@
+<%- include('../partials/header') %>
+
+<table id="list">
+    <thead>
+        <tr id="heading">
+            <th>Name</th>
+            <th>President?</th>
+            <th>Birth Day</th>
+            <th>Home State</th>
+            <th>Bio</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% founders.forEach(function(f){ %>
+            <tr id="info">
+                <td><%= f.name %></td>
+                <td><%= f.wasPresident %></td>
+                <td><%= f.birthDay %></td>
+                <td><%= f.homeState %></td>
+                <td><%= f.bio %></td>
+            </tr>
+        <% }) %>
+    </tbody>
+</table>
+
+<%- include('../partials/footer') %>
