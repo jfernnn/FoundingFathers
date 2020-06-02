@@ -18,6 +18,7 @@ require('./config/passport');
 var indexRouter = require('./routes/index');
 var foundersRouter = require('./routes/founders');
 var achievementsRouter = require('./routes/achievements');
+var documentsRouter = require('./routes/documents');
 var usersRouter = require('./routes/users');
 
 
@@ -41,7 +42,8 @@ app.use(methodOverride('_method'));
 
 app.use('/', indexRouter);
 app.use('/founders', foundersRouter);
-app.use('/', achievementsRouter)
+app.use('/', achievementsRouter);
+app.use('/', documentsRouter);
 app.use('/users', usersRouter);
 
 // catch 404 and forward to error handler

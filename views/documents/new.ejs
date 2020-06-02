@@ -1,0 +1,13 @@
+<%- include('../partials/header') %>
+
+<form id="new-form" action="/documents" method="POST">
+  <label>Title of Document:</label>
+  <input type="text" name="title">
+  <label>Date Signed:</label>
+  <input type="text" name="dateSigned">
+  <label>Historical Significance:</label>
+  <input type="text" name="significance">
+  <input type="submit" value="Add Document">
+</form>
+
+<%- include('../partials/footer') %>
