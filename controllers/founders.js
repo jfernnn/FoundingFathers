@@ -1,5 +1,5 @@
 const Founder = require('../models/founder');
-const Document = require('../models/document')
+const Document = require('../models/document');
 
 module.exports = {
     index,
@@ -33,7 +33,7 @@ function newFounder(req, res) {
 
 function create(req, res) {
     const founder = new Founder(req.body);
-    console.log(req.body);
+    founder.googleId = req.user.googleId;
     founder.save(function(err){
         res.redirect('/founders');
     })
@@ -57,11 +57,19 @@ function deleteFounder(req, res) {
 
 function edit(req, res) {
     Founder.findById(req.params.id, function(err, founder){
-        res.render('founders/edit', {
-            title: "Edit Founder",
-            user: req.user,
-            founder
-        })
+        console.log('req user id ----->',req.user.googleId)
+        console.log('founder id ----->',founder.googleId)
+        
+        if(req.user.googleId === founder.googleId) {
+            res.render('founders/edit', {
+                title: "Edit Founder",
+                user: req.user,
+                founder
+            })
+        } else {
+            console.log('POOOPPPY')
+            res.redirect('/founders');
+        }
     })
 }
 

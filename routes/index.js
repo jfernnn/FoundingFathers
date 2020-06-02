@@ -11,14 +11,14 @@ router.get('/auth/google', passport.authenticate(
 router.get('/oauth2callback', passport.authenticate(
   'google',
   {
-    successRedirect : '/users',
-    failureRedirect : '/users'
+    successRedirect : '/founders',
+    failureRedirect : '/founders'
   }
 ));
 
 router.get('/logout', function(req, res){
   req.logout();
-  res.redirect('/users');
+  res.redirect('/founders');
 });
 
 /* GET home page. */

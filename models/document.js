@@ -9,4 +9,4 @@ const documentSchema = new Schema({
     timestamps: true
 });
 
-module.exports = mongoose.model('Document', documentSchema)
+module.exports = mongoose.model('Document', documentSchema);

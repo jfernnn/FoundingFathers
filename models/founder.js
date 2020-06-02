@@ -16,6 +16,7 @@ const founderSchema = new Schema({
     birthDay: Date,
     homeState: String,
     bio: String,
+    googleId: String,
     achievements: [achievementSchema],
     documentsSigned: [{
         type: Schema.Types.ObjectId,

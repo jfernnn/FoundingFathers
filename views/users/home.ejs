@@ -1,0 +1,36 @@
+<%- include('../partials/header') %>
+
+<table id="list">
+    <thead>
+        <tr id="heading">
+            <th></th>
+            <th>Name</th>
+            <th>President?</th>
+            <th>Birth Day</th>
+            <th>Home State</th>
+            <th>Bio</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% founders.forEach(function(f){ %>
+            <% if(f.googleId == user.googleId) { %>
+            <tr id="info">
+                <td>
+                    <form action="/founders/<%= f.id %>?_method=DELETE"
+                        class="delete-form" method="POST">
+                        <button type="submit">X</button>
+                    </form>
+                </td>
+                <td><a href="/founders/<%= f.id %>"><%= f.name %></a></td>
+                <td><%= f.wasPresident %></td>
+                <td><%= f.birthDay %></td>
+                <td><%= f.homeState %></td>
+                <td><%= f.bio %></td>
+            </tr>
+            <% } %>
+        <% }) %>
+    </tbody>
+    <br><br><br>
+</table>
+
+<%- include('../partials/footer') %>
