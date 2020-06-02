@@ -5,7 +5,9 @@ module.exports = {
     new: newFounder,
     create,
     show,
-    delete: deleteFounder
+    delete: deleteFounder,
+    edit,
+    update
 }
 
 function index(req, res) {
@@ -44,7 +46,27 @@ function show(req, res) {
 }
 
 function deleteFounder(req, res) {
-    Founder.findById(req.params.id, function(err, founder){
+    Founder.deleteOne({_id: req.params.id}, function(err){
         res.redirect('/founders');
+    })
+}
+
+function edit(req, res) {
+    Founder.findById(req.params.id, function(err, founder){
+        res.render('founders/edit', {
+            title: "Edit Founder",
+            user: req.user,
+            founder
+        })
+    })
+}
+
+function update(req, res) {
+    console.log(req.body);
+    Founder.findById(req.params.id, function(err, founder){
+        Object.assign(founder, req.body);
+        founder.save(function(err){
+            res.redirect(`/founders/${req.params.id}`);
+        })
     })
 }

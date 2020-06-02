@@ -12,5 +12,20 @@
     <div>Bio</div>
     <div><%= founder.bio %></div>
 </section>
+<br>
+<a href="/founders/<%= founder.id %>/edit"><button>Edit</button></a>
+<br><br><br>
+<section id="achievements-section">
+
+    <% founder.achievements.forEach(function(f) { %>
+        <div><%= f.achievement %></div>
+    <% }) %>
+
+    <br><br><br>
+    <form id="new-achievements" action="/founders/<%= founder.id %>/achievements" method="POST">
+        <input type="text" name="achievement">
+        <br><input type="submit" value="Add Personal Achievement">
+    </form>
+</section>
 
 <%- include('../partials/footer') %>
