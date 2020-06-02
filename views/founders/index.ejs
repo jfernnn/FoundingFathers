@@ -28,6 +28,25 @@
             </tr>
         <% }) %>
     </tbody>
+    <br><br><br>
+</table>
+<table id="docList">
+    <thead>
+        <tr>
+            <th>Title:</th>
+            <th>Date Signed:</th>
+            <th>Historical Significance:</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% documents.forEach(function(d) { %>
+            <tr>
+                <td><%= d.title %></td>
+                <td><%= d.dateSigned %></td>
+                <td><%= d.significance %></td>
+            </tr>
+        <% }) %>
+    </tbody>
 </table>
 
 <%- include('../partials/footer') %>

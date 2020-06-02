@@ -1,4 +1,5 @@
 const Founder = require('../models/founder');
+const Document = require('../models/document')
 
 module.exports = {
     index,
@@ -12,10 +13,13 @@ module.exports = {
 
 function index(req, res) {
     Founder.find({}, function(err, founders){
-        res.render('founders/index', {
-            title: 'View Founders', 
-            founders,
-            user: req.user
+        Document.find({}, function(err, documents){
+            res.render('founders/index', {
+                title: 'View Founders', 
+                founders,
+                documents,
+                user: req.user
+            })
         })
     })
 }
