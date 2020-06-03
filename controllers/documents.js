@@ -4,7 +4,8 @@ const Founder = require('../models/founder')
 module.exports = {
     new: newDocument,
     create,
-    addSigner
+    addSigner,
+    index
 }
 
 function newDocument(req, res) {
@@ -23,11 +24,20 @@ function create(req, res) {
 }
 
 function addSigner(req, res) {
-    console.log('-----------',req.body.documentId);
     Founder.findById(req.params.id, function(err, founder) {
         founder.documentsSigned.push(req.body.documentId)
         founder.save(function(err) {
             res.redirect(`/founders/${founder._id}`)
+        })
+    })
+}
+
+function index(req, res) {
+    Document.find({}, function(err, documents) {
+        res.render('documents/index', {
+            title: "All Documents", 
+            documents,
+            user: req.user
         })
     })
 }

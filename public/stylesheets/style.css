@@ -12,3 +12,24 @@ a {
   justify-content: center;
 }
 
+#new-founders-view {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto;
+  justify-content: center;
+}
+
+#info {
+  margin: 30px;
+}
+
+#docList {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto;
+  justify-content: center;
+}
+
+#one-doc {
+  margin: 20px 40px 20px 40px;
+}

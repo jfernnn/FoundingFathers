@@ -1,54 +1,23 @@
 <%- include('../partials/header') %>
 
-<table id="list">
-    <thead>
-        <tr id="heading">
-            <th></th>
-            <th>Name</th>
-            <th>President?</th>
-            <th>Birth Day</th>
-            <th>Home State</th>
-            <th>Bio</th>
-        </tr>
-    </thead>
-    <tbody>
-        <% founders.forEach(function(f){ %>
-            <tr id="info">
-                <td>
-                    <% if(( user ) && ( user.googleId === f.googleId )) { %>
+<section id="new-founders-view">
+    <% founders.forEach(function(f){ %>
+        <div id="info">
+            <div><a href="/founders/<%= f.id %>"><%= f.name %></a></div>
+            <div><%= f.wasPresident %></div>
+            <div><%= f.birthDay %></div>
+            <div><%= f.homeState %></div>
+            <div><%= f.bio %></div>
+            <div>
+                <% if(( user ) && ( user.googleId === f.googleId )) { %>
                     <form action="/founders/<%= f.id %>?_method=DELETE"
                         class="delete-form" method="POST">
                         <button type="submit">X</button>
                     </form>
                 <% } %>
-                </td>
-                <td><a href="/founders/<%= f.id %>"><%= f.name %></a></td>
-                <td><%= f.wasPresident %></td>
-                <td><%= f.birthDay %></td>
-                <td><%= f.homeState %></td>
-                <td><%= f.bio %></td>
-            </tr>
-        <% }) %>
-    </tbody>
-    <br><br><br>
-</table>
-<table id="docList">
-    <thead>
-        <tr>
-            <th>Title:</th>
-            <th>Date Signed:</th>
-            <th>Historical Significance:</th>
-        </tr>
-    </thead>
-    <tbody>
-        <% documents.forEach(function(d) { %>
-            <tr>
-                <td><%= d.title %></td>
-                <td><%= d.dateSigned %></td>
-                <td><%= d.significance %></td>
-            </tr>
-        <% }) %>
-    </tbody>
-</table>
+            </div>
+        </div>
+    <% }) %>
+</section>
 
 <%- include('../partials/footer') %>

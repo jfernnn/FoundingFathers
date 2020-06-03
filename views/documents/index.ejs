@@ -1,0 +1,13 @@
+<%- include('../partials/header') %>
+
+<section id="docList">
+    <% documents.forEach(function(d) { %>
+        <div id="one-doc">
+                <div><%= d.title %></div>
+                <div><%= d.dateSigned %></div>
+                <div><%= d.significance %></div>
+        </div>
+    <% }) %>
+</section>
+
+<%- include('../partials/footer') %>
