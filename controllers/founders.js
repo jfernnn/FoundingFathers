@@ -40,11 +40,16 @@ function create(req, res) {
 }
 
 function show(req, res) {
-    Founder.findById(req.params.id, function(err, founder){
-        res.render(`founders/show`, {
-            title: 'Show Founder',
-            user: req.user,
-            founder
+    Founder.findById(req.params.id)
+     .populate('documentsSigned')
+      .exec(function(err, founder){
+        Document.find({_id: {$nin: founder.documents}}, function(err, documents){  
+            res.render(`founders/show`, {
+                title: 'Show Founder',
+                user: req.user,
+                founder,
+                documents
+            })
         })
     })
 }
@@ -57,9 +62,6 @@ function deleteFounder(req, res) {
 
 function edit(req, res) {
     Founder.findById(req.params.id, function(err, founder){
-        console.log('req user id ----->',req.user.googleId)
-        console.log('founder id ----->',founder.googleId)
-        
         if(req.user.googleId === founder.googleId) {
             res.render('founders/edit', {
                 title: "Edit Founder",

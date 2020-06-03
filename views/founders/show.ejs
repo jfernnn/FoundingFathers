@@ -15,6 +15,19 @@
 <br>
 <a href="/founders/<%= founder.id %>/edit"><button>Edit</button></a>
 <br><br><br>
+<form id="add-doc-to-founder" action="/founders/<%= founder.id %>/documents" method="POST">
+    <select name="documentId">
+        <%- documents.map(d => `<option value="${d._id}">${d.title}</option>)`).join('') %>
+    </select>
+    <button type="submit">Add the Document to the Signer</button>
+</form>
+<br>
+<section id="documents-signed">
+    <% founder.documentsSigned.forEach(function(d) { %>
+        <div><%= d.title %></div>
+    <% }) %>
+</section>
+<br><br><br>
 <section id="achievements-section">
 
     <% founder.achievements.forEach(function(f) { %>

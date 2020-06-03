@@ -15,10 +15,12 @@
         <% founders.forEach(function(f){ %>
             <tr id="info">
                 <td>
+                    <% if(( user ) && ( user.googleId === f.googleId )) { %>
                     <form action="/founders/<%= f.id %>?_method=DELETE"
                         class="delete-form" method="POST">
                         <button type="submit">X</button>
                     </form>
+                <% } %>
                 </td>
                 <td><a href="/founders/<%= f.id %>"><%= f.name %></a></td>
                 <td><%= f.wasPresident %></td>
