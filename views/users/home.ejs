@@ -2,26 +2,28 @@
 
 <section id="new-founders-view">
     <% founders.forEach(function(f){ %>
-        <% if(f.googleId == user.googleId) { %>
+      <% if(f.googleId == user.googleId) { %>
         <div id="info">
-            <div><a href="/founders/<%= f.id %>"><%= f.name %></a></div>
-            <div><%= f.wasPresident %></div>
-            <div><%= f.birthDay %></div>
-            <div><%= f.homeState %></div>
-            <div><%= f.bio %></div>
-            <div>
-                <% if(( user ) && ( user.googleId === f.googleId )) { %>
-                    <form action="/founders/<%= f.id %>?_method=DELETE"
-                        class="delete-form" method="POST">
-                        <button type="submit">X</button>
-                    </form>
-                <% } %>
+          <a href="/founders/<%= f.id %>"><div id="descriptionshref"><%= f.name %></div></a>
+            <% if(f.wasPresident === "Yes") { %>
+              <div id="descriptions">He was a President</div>
+            <% } else { %>
+            <% } %>
+            <div id="descriptions"><%= f.birthDay %></div>
+            <div id="descriptions"><%= f.homeState %></div>
+            <div id="descriptions"><%= f.bio %></div>
+            <br><div id="descriptions">
+              <% if(( user ) && ( user.googleId === f.googleId )) { %>
+                <form action="/founders/<%= f.id %>?_method=DELETE"
+                  class="delete-form" method="POST">
+                  <button type="submit" id="delete-button">X</button>
+                </form>
+                <br>
+              <% } %>
             </div>
         </div>
-        <% } %>
+      <% } %>
     <% }) %>
 </section>
-
-
 
 <%- include('../partials/footer') %>

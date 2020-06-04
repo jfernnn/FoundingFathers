@@ -1,44 +1,39 @@
 <%- include('../partials/header') %>
-
-<section id="Tablee">
-    <div>Name:</div>
-    <div><%= founder.name %></div>
-    <div>Was he president?</div>
-    <div><%= founder.wasPresident %></div>
-    <div>Birthday</div>
-    <div><%= founder.birthDay %></div>
-    <div>Home State</div>
-    <div><%= founder.homeState %></div>
-    <div>Bio</div>
-    <div><%= founder.bio %></div>
-</section>
-<br>
-<a href="/founders/<%= founder.id %>/edit"><button>Edit</button></a>
-<br><br><br>
-<form id="add-doc-to-founder" action="/founders/<%= founder.id %>/documents" method="POST">
-    <select name="documentId">
+<section id="whole-founder">
+  <section id="Tablee">
+    <br><div id="founder-name"><%= founder.name %></div>
+    <% if(founder.wasPresident === "Yes") { %>
+      <div id="descriptions">He was a President</div>
+    <% } else { %>
+    <% } %>
+    <div>Birthday: <%= founder.birthDay %></div>
+    <div>Home State: <%= founder.homeState %></div>
+    <div>Bio: <%= founder.bio %></div>
+  </section>
+  <a href="/founders/<%= founder.id %>/edit"><button>Edit</button></a>
+  <section id="founders-documents">
+    <form id="add-doc-to-founder" action="/founders/<%= founder.id %>/documents" method="POST">
+      <select name="documentId">
         <%- documents.map(d => `<option value="${d._id}">${d.title}</option>)`).join('') %>
-    </select>
-    <button type="submit">Add the Document to the Signer</button>
-</form>
-<br>
-<section id="documents-signed">
-    <% founder.documentsSigned.forEach(function(d) { %>
-        <div><%= d.title %></div>
-    <% }) %>
-</section>
-<br><br><br>
-<section id="achievements-section">
-
-    <% founder.achievements.forEach(function(f) { %>
-        <div><%= f.achievement %><button>Edit</button></div>
-    <% }) %>
-
-    <br><br><br>
-    <form id="new-achievements" action="/founders/<%= founder.id %>/achievements" method="POST">
-        <input type="text" name="achievement">
-        <br><input type="submit" value="Add Personal Achievement">
+      </select>
+      <button type="submit">Add the Document to the Signer</button>
     </form>
-</section>
 
+    <section id="documents-signed">
+      <% founder.documentsSigned.forEach(function(d) { %>
+        <div><%= d.title %></div>
+      <% }) %>
+    </section>
+  </section>
+  
+  <section id="achievements-section">
+    <% founder.achievements.forEach(function(f) { %>
+      <div><%= f.achievement %><button>Edit</button></div>
+    <% }) %>
+    <form id="new-achievements" action="/founders/<%= founder.id %>/achievements" method="POST">
+      <input type="text" name="achievement">
+      <br><input type="submit" value="Add Personal Achievement">
+    </form>
+  </section>
+</section>
 <%- include('../partials/footer') %>
