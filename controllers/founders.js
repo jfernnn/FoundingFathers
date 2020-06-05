@@ -8,7 +8,9 @@ module.exports = {
     show,
     delete: deleteFounder,
     edit,
-    update
+    update,
+    like,
+    dislike
 }
 
 function index(req, res) {
@@ -19,14 +21,14 @@ function index(req, res) {
                 founders,
                 documents,
                 user: req.user
-            })
-        })
-    })
+            });
+        });
+    });
 }
 
 function newFounder(req, res) {
     res.render('founders/new', {
-        title: "New Founder",
+        title: 'New Founder',
         user: req.user
     });
 }
@@ -36,7 +38,7 @@ function create(req, res) {
     founder.googleId = req.user.googleId;
     founder.save(function(err){
         res.redirect('/founders');
-    })
+    });
 }
 
 function show(req, res) {
@@ -49,30 +51,29 @@ function show(req, res) {
                 user: req.user,
                 founder,
                 documents
-            })
-        })
-    })
+            });
+        });
+    });
 }
 
 function deleteFounder(req, res) {
     Founder.deleteOne({_id: req.params.id}, function(err){
         res.redirect('/founders');
-    })
+    });
 }
 
 function edit(req, res) {
     Founder.findById(req.params.id, function(err, founder){
         if(req.user.googleId === founder.googleId) {
             res.render('founders/edit', {
-                title: "Edit Founder",
+                title: 'Edit Founder',
                 user: req.user,
                 founder
             })
         } else {
-            console.log('POOOPPPY')
             res.redirect('/founders');
         }
-    })
+    });
 }
 
 function update(req, res) {
@@ -81,6 +82,28 @@ function update(req, res) {
         Object.assign(founder, req.body);
         founder.save(function(err){
             res.redirect(`/founders/${req.params.id}`);
-        })
+        });
+    });
+}
+
+function like(req, res) {
+    Founder.findById(req.params.id, function(err, founder) {
+        founder.likes.push(req.user.googleId);
+        founder.save(function(err) {
+            res.redirect(`../../founders/${req.params.id}`)
+        });
+    });
+}
+
+function dislike(req, res) {
+    Founder.findById(req.params.id, function(err, founder) {
+        for(var i = 0; i < founder.likes.length; i++) {
+            if(founder.likes[i] === req.user.googleId) {
+                founder.likes.splice(i, 1);
+                founder.save(function(err){
+                    res.redirect(`../../founders/${req.params.id}`)
+                });
+            }
+        }
     })
 }

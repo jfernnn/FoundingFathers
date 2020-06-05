@@ -5,6 +5,7 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   min-height: 700px;
+  font-family: Oldtown, fantasy;
 }
 
 a {
@@ -35,7 +36,6 @@ h1 {
 }
 
 #info {
-  font-family: Apple Chancery, cursive;
   margin: 15px;
   background-color: rgb(224, 203, 175);
   border-width: 3px;
@@ -51,11 +51,11 @@ h1 {
 }
 
 #one-doc {
-  margin: 20px 40px 20px 40px;
+  margin: 20px 20px 20px 20px;
   background-color: rgb(224, 203, 175);
 }
 
-#descriptions {
+#descriptions, #doc-title, #founder-name {
   margin: 0 15px;
   display: grid;
   justify-content: center;
@@ -66,6 +66,7 @@ h1 {
   border-radius: 4px 4px 0 0;
   height: 30px;
   margin: 12px 0;
+  font-family: Apple Chancery, cursive;
   display: grid;
   justify-content: center;
   background-color: rgb(133, 114, 90);
@@ -98,9 +99,14 @@ h1 {
   margin: 10px;
 }
 
-#founder-name {
+#doc-title {
+  font-size: 30px;
+  font-family: Apple Chancery, cursive;
+}
+
+#like-section {
   display: grid;
-  justify-content: center;
+  justify-content: flex-end;
 }
 
 @media only screen and (min-width: 1000px) {

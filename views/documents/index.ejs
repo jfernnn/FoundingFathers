@@ -3,9 +3,10 @@
 <section id="docList">
     <% documents.forEach(function(d) { %>
         <div id="one-doc">
-                <div><%= d.title %></div>
-                <div><%= d.dateSigned %></div>
-                <div><%= d.significance %></div>
+                <div id="doc-title"><%= d.title %></div>
+                <div id="descriptions">Date Signed: <%= d.dateSigned %></div>
+                <div>Historical Significance</div>
+                <div id="descriptions"></divid><%= d.significance %></div>
         </div>
     <% }) %>
 </section>

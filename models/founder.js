@@ -5,7 +5,7 @@ const achievementSchema = new Schema ({
     achievement: String
 }, {
     timestamps: true
-})
+});
 
 const founderSchema = new Schema({
     name: {
@@ -17,6 +17,7 @@ const founderSchema = new Schema({
     homeState: String,
     bio: String,
     googleId: String,
+    likes: [String],
     achievements: [achievementSchema],
     documentsSigned: [{
         type: Schema.Types.ObjectId,
@@ -24,6 +25,6 @@ const founderSchema = new Schema({
     }]
 }, {
     timestamps: true
-})
+});
 
 module.exports = mongoose.model('Founder', founderSchema);

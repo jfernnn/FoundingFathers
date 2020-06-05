@@ -1,4 +1,28 @@
 <%- include('../partials/header') %>
+
+<section id="like-section">
+<% if(user) { %>
+    <% var alreadyLiked = false; %>
+    <% founder.likes.forEach(function(l) { %>
+        <% if(l = user.googleId) { %>
+            <% alreadyLiked = true %>
+        <% } %>
+    <% }) %>
+    <% if(alreadyLiked) { %>
+        <form id="dislike-button" action="/founders/<%= founder.id %>/likes?_method=DELETE" method="POST">
+            <i class="fa fa-thumbs-up" style="font-size:36px"></i>  
+            <input type="submit" value="unlike">
+        </form>
+    <% } else { %>
+        <form id="like-button" action="/founders/<%= founder.id %>/likes" method="POST">
+            <input type="submit" value="like">
+        </form>
+    <% } %>
+  <% } else { %>
+    <div>Log in to Like</div>
+  <% } %>
+</section>
+
 <section id="whole-founder">
   <section id="Tablee">
     <br><div id="founder-name"><%= founder.name %></div>
@@ -9,8 +33,9 @@
     <div>Birthday: <%= founder.birthDay %></div>
     <div>Home State: <%= founder.homeState %></div>
     <div>Bio: <%= founder.bio %></div>
+    <a href="/founders/<%= founder.id %>/edit"><button>Edit</button></a>
   </section>
-  <a href="/founders/<%= founder.id %>/edit"><button>Edit</button></a>
+  <div></div>
   <section id="founders-documents">
     <form id="add-doc-to-founder" action="/founders/<%= founder.id %>/documents" method="POST">
       <select name="documentId">
@@ -36,4 +61,6 @@
     </form>
   </section>
 </section>
+
+
 <%- include('../partials/footer') %>
