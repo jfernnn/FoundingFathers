@@ -15,6 +15,7 @@ module.exports = {
 
 function index(req, res) {
     Founder.find({}, function(err, founders){
+        console.log(founders[0].imgURL)
         Document.find({}, function(err, documents){
             res.render('founders/index', {
                 title: 'View Founders', 
@@ -88,6 +89,7 @@ function update(req, res) {
 
 function like(req, res) {
     Founder.findById(req.params.id, function(err, founder) {
+        console.log('<--->', req.user.googleId)
         founder.likes.push(req.user.googleId);
         founder.save(function(err) {
             res.redirect(`../../founders/${req.params.id}`)

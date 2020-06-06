@@ -4,9 +4,13 @@
     <% documents.forEach(function(d) { %>
         <div id="one-doc">
                 <div id="doc-title"><%= d.title %></div>
-                <div id="descriptions">Date Signed: <%= d.dateSigned %></div>
-                <div>Historical Significance</div>
-                <div id="descriptions"></divid><%= d.significance %></div>
+                <div id="doc-descriptions">
+                    <div id="descriptions">Date Signed: </div>
+                    <div id="descriptions">Historical Significance: </div>
+                    <div id="descriptions"><%= d.dateSigned %></div>
+                    <div id="descriptions"></divid><%= d.significance %></div>
+                </div>
+                <div>Signers: Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio iusto consectetur corporis, accusamus harum eligendi explicabo aperiam quisquam sequi sint vel incidunt sed, esse adipisci enim? Nostrum quos reprehenderit eum.</div>
         </div>
     <% }) %>
 </section>

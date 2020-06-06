@@ -13,7 +13,7 @@ router.get('/oauth2callback', passport.authenticate(
   {
     successRedirect : '/founders',
     failureRedirect : '/founders'
-  }
+  },
 ));
 
 router.get('/logout', function(req, res){

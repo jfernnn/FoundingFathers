@@ -8,10 +8,19 @@
           <div id="descriptions">He was a President</div>
         <% } else { %>
         <% } %>
-        <div>IMAGE PLACEHOLDER</div>
-        <div id="descriptions">Birthday: <%= f.birthDay %></div>
-        <div id="descriptions">Home State: <%= f.homeState %></div>
+        <% if(f.imgURL == undefined) { %>
+            <div id="mug"><img src="https://cdn.shopify.com/s/files/1/0200/0548/products/414GA_1296x.png?v=1482263956" class="mugshot"></div>
+        <% } else { %>
+            <div id="mug"><img src=<%= f.imgURL %> class="mugshot"></div>
+        <% } %>
+        <div id="home-state"><span>Home State: <%= f.homeState %></span></div>
+        <hr><div id="descriptions">Birthday: <%= f.birthDay %></div>
         <div id="descriptions"><%= f.bio %></div>
+        <% if(f.likes.length > 0) { %>
+            <div id="descriptions">
+                <%= f.likes.length %> like<% if(f.likes.length > 1) { %>s<%}%>
+            </div>
+        <% } %>
         <br><div id="descriptions">
           <% if(( user ) && ( user.googleId === f.googleId )) { %>
             <form action="/founders/<%= f.id %>?_method=DELETE"

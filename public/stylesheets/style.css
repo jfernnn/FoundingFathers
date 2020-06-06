@@ -1,15 +1,21 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  background-image: url(https://cdn.britannica.com/21/143621-050-D0409B47/Declaration-of-Independence-canvas-rotunda-John-Trumbull-July-4-1776.jpg);
+  background: url(https://cdn.britannica.com/21/143621-050-D0409B47/Declaration-of-Independence-canvas-rotunda-John-Trumbull-July-4-1776.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
   background-size: cover;
-  background-repeat: no-repeat;
-  min-height: 700px;
   font-family: Oldtown, fantasy;
 }
 
 a {
   color: rgb(228, 174, 76);
+}
+
+a span {
+  border-radius: 4px;
+  background-color: rgb(99, 96, 66);
 }
 
 nav {
@@ -22,57 +28,66 @@ h1 {
   justify-content: center;
 }
 
-#Tablee, #achievements-section {
+#Tablee, #achievements-section, #mug {
   display: grid;
   justify-content: center;
 }
 
 #new-founders-view {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   grid-template-rows: auto;
   justify-content: center;
   align-items: center;
 }
 
 #info {
-  margin: 15px;
+  margin: 15px 45px;
   background-color: rgb(224, 203, 175);
-  border-width: 3px;
-  border-top: grey;
-  border-left: grey;
+  border-width: 5px;
+  border-color: rgb(80, 40, 22);
+  border-style: groove;
+  border-right-color: white;
+  border-bottom-color: white;
 }
 
 #docList {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   grid-template-rows: auto;
   justify-content: center;
 }
 
 #one-doc {
   margin: 20px 20px 20px 20px;
-  background-color: rgb(224, 203, 175);
+  background-color: white;
 }
 
-#descriptions, #doc-title, #founder-name {
+#descriptions, #doc-title, #founder-name, #home-state, #descriptionshref {
   margin: 0 15px;
-  display: grid;
+  display: flex;
   justify-content: center;
+  flex-direction: column;
+  text-align: center; 
+  font-size: 18px;
+}
+
+#home-state span {
+  padding: 0 8px;
+  margin: 0 6px;
 }
 
 #descriptionshref {
-  font-size: 20px;
+  font-size: 38px;
   border-radius: 4px 4px 0 0;
-  height: 30px;
+  height: auto;
   margin: 12px 0;
   font-family: Apple Chancery, cursive;
-  display: grid;
-  justify-content: center;
   background-color: rgb(133, 114, 90);
   color: white;
   text-decoration: none;
   font-weight: bold;
+  border-style: groove;
 }
 
 #delete-button {
@@ -89,24 +104,94 @@ h1 {
   grid-template-rows: 1fr 1fr;
 }
 
+#achievements-section, #founders-documents, #Tablee {
+  justify-content: center;
+  background-image: linear-gradient(to bottom right, rgb(161, 140, 93), rgb(224, 203, 175) );
+  min-height: 120px;
+  margin: 10px;
+}
+
 #Tablee {
   width: 200%;
 }
 
-#achievements-section, #founders-documents, #Tablee {
-  justify-content: center;
-  background-image: linear-gradient(to bottom right, rgb(161, 140, 93), rgb(224, 203, 175) );
-  margin: 10px;
-}
-
 #doc-title {
-  font-size: 30px;
+  font-size: 32px;
   font-family: Apple Chancery, cursive;
 }
 
 #like-section {
   display: grid;
   justify-content: flex-end;
+}
+
+a:hover {
+  color: black;
+}
+
+.mugshot {
+  height: 260px;
+  width: 250px;
+}
+
+#doc-descriptions {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+}
+
+.bigMug {
+  height: 300px;
+  width: 250px;
+}
+
+@media only screen and (min-width: 750px) {
+
+  #docList {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    justify-content: center;
+  }
+
+}
+
+
+@media only screen and (min-width: 650px) {
+  #new-founders-view {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  #info {
+    font-family: Apple Chancery, cursive;
+    margin: 25px;
+    background-color: rgb(224, 203, 175);
+    border-width: 3px;
+    border-top: grey;
+    border-left: grey;
+  }
+  .mugshot {
+    height: 160px;
+    width: 150px;
+  }
+  #descriptionshref {
+    font-size: 20px;
+    border-radius: 4px 4px 0 0;
+    height: 30px;
+    margin: 12px 0;
+    font-family: Apple Chancery, cursive;
+    display: grid;
+    justify-content: center;
+    background-color: rgb(133, 114, 90);
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    border-style: groove;
+  }
+  
 }
 
 @media only screen and (min-width: 1000px) {
@@ -126,5 +211,4 @@ h1 {
     border-top: grey;
     border-left: grey;
   }
-
 }

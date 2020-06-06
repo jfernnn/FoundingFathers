@@ -17,6 +17,7 @@ const founderSchema = new Schema({
     homeState: String,
     bio: String,
     googleId: String,
+    imgURL: String,
     likes: [String],
     achievements: [achievementSchema],
     documentsSigned: [{
