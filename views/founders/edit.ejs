@@ -3,15 +3,15 @@
 <form id="edit-form" action="/founders/<%= founder.id %>?_method=PUT" method="POST">
   <span>
   <label>Name:</label>
-  <br><input type="text" value="<%= founder.name %>" name="name">
+  <br><input type="text" value="<%= founder.name %>" name="name" required>
   <br><label>Home State:</label>
-  <br><input type="text" value="<%= founder.homeState %>" name="homeState">
+  <br><input type="text" value="<%= founder.homeState %>" name="homeState" required>
   <br><label>Was He a President:</label>
-  <br><input type="text" value="<%= founder.wasPresident %>" name="wasPresident">
+  <br><input type="text" value="<%= founder.wasPresident %>" name="wasPresident" required>
   <br><label>Birthday:</label>
-  <br><input type="date" name="birthDay">
+  <br><input type="date" name="birthDay" required>
   <br><label>Bio:</label>
-  <br><input type="text" value="<%= founder.bio %>" name="bio">
+  <br><input type="text" value="<%= founder.bio %>" name="bio" required>
   <br><label>Image URL:</label>
   <br><input type="text" value="<%= founder.imgURL %>" name="imgURL">
   <br><input type="submit" value="Change Founder">

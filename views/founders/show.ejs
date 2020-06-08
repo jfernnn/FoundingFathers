@@ -38,11 +38,7 @@
 
   <section id="profile-info">
     <section id="profile-img">
-      <% if(founder.imgURL == undefined) { %>
-        <div id="bigMug"><img src="https://cdn.shopify.com/s/files/1/0200/0548/products/414GA_1296x.png?v=1482263956" class="bigMug"></div>
-      <% } else { %>
         <div id="bigMug"><img src=<%= founder.imgURL %> class="bigMug"></div>
-      <% } %>
     </section>
 
     <section id="profile-desc">
@@ -58,7 +54,7 @@
     <% if(user.googleId === founder.googleId) { %>
         <a href="/founders/<%= founder.id %>/edit" id="selector"><button>Edit</button></a>
     <% } %>
-<% } %>
+  <% } %>
 </section>
 
 <section id="whole-founder">

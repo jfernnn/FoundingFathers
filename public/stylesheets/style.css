@@ -41,8 +41,6 @@ h1 {
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: auto;
-  justify-content: center;
-  align-items: center;
 }
 
 #new-form, #edit-form {
@@ -178,7 +176,6 @@ h2 {
   justify-content: center;
   background-image: linear-gradient(to bottom right, rgb(161, 140, 93), rgb(224, 203, 175) );
   min-height: 120px;
-  margin: 10px;
 }
 
 #descriptions-heading {
@@ -211,6 +208,20 @@ a:hover {
 #doc-descriptions {
   display: grid;
   grid-template-columns: 1fr 2fr;
+}
+
+#profile, #whole-founder{
+  margin: 10px
+}
+
+#achievements-section {
+  margin-left: 10px;
+  margin-top: 10px;
+}
+
+#founders-documents {
+  margin-top: 10px;
+  margin-right: 10px;
 }
 
 #profile-info {
@@ -255,25 +266,11 @@ a:hover {
   width: 250px;
 }
 
-@media only screen and (min-width: 850px) {
-
-  #docList {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto;
-    justify-content: center;
-  }
-
-}
-
-
 @media only screen and (min-width: 650px) {
   #new-founders-view {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: auto;
-    justify-content: center;
-    align-items: center;
   }
   
   #info {
@@ -309,12 +306,9 @@ a:hover {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: auto;
-    justify-content: center;
-    align-items: center;
   }
   
   #info {
-    font-family: Apple Chancery, cursive;
     margin: 25px;
     background-color: rgb(224, 203, 175);
     border-width: 3px;
@@ -322,11 +316,18 @@ a:hover {
     border-left: grey;
   }
   #whole-founder, #like-section {
-    margin: 0 150px;
+    margin: 0 120px;
   }
 
   #profile {
     margin-left: 120px;
     margin-right: 120px;
+  }
+
+  #docList {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    justify-content: center;
   }
 }

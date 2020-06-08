@@ -3,15 +3,15 @@
 <form id="new-form" action="/founders" method="POST">
   <span>
     <label>Name:</label>
-    <br><input type="text" name="name" placeholder="First and Last">
+    <br><input type="text" name="name" placeholder="First and Last" required>
     <br><label>Home State:</label>
-    <br><input type="text" name="homeState" placeholder="Ex. VA">
+    <br><input type="text" name="homeState" placeholder="Ex. VA" required>
     <br><label>Was He a President?</label>
-    <br><input type="text" name="wasPresident" placeholder="Yes/No"> 
+    <br><input type="text" name="wasPresident" placeholder="Yes/No" required> 
     <br><label>Birthday:</label>
-    <br><input type="date" name="birthDay">
+    <br><input type="date" name="birthDay" required>
     <br><label>Bio:</label>
-    <br><input type="text" name="bio" placeholder="About">
+    <br><input type="text" name="bio" placeholder="About" required>
     <br><label>Image URL:</label>
     <br><input type="text" name="imgURL" placeholder="URL">
     <br><input type="submit" value="Add Founder">

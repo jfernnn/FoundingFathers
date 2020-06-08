@@ -4,7 +4,11 @@ A historical fact app about the Founding Fathers of the United States. Each foun
 
 ## Screenshots
 
-![Screen](https://imgur.com/q4cdWNW)
+![Founders Screen](https://imgur.com/q4cdWNW.jpg)
+![Top of Founder Page](https://imgur.com/UACvAco.jpg)
+![Bottom of Founder Page](https://imgur.com/RLGGJ8S.jpg)
+![Documents Screen](https://imgur.com/IVqZZv6.jpg)
+![Add Document](https://imgur.com/tlXMFAv.jpg)
 
 ## Technologies Used
 

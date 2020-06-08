@@ -3,13 +3,13 @@
 <form id="new-form" action="/documents" method="POST">
   <span>
     <label>Title of Document:</label>
-    <input type="text" name="title" placeholder="Title">
+    <input type="text" name="title" placeholder="Title" required>
     <br>
     <label>Date Signed:</label>
-    <input type="date" name="dateSigned">
+    <input type="date" name="dateSigned" required>
     <br>
     <label>Historical Significance:</label>
-    <input type="text" name="significance" placeholder="Significance">
+    <input type="text" name="significance" placeholder="Significance" required>
     <br>
     <input type="submit" value="Add Document">
   </span>

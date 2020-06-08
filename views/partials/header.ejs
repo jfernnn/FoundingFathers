@@ -22,9 +22,11 @@
     </ul></span>
     <span><a href="/"><span>Founders</span></a></span>
     <span><a href="/documents"><span>Documents</span></a></span>
-    <span><a href="/users"><span>Home</span></a></span>
-    <span><a href="/founders/new"><span>Add Founder</span></a></span>
-    <span><a href="/documents/new"><span>Add Document</span></a></span>
+    <% if(user) { %>
+      <span><a href="/users"><span>Home</span></a></span>
+      <span><a href="/founders/new"><span>Add Founder</span></a></span>
+      <span><a href="/documents/new"><span>Add Document</span></a></span>
+    <% } %>
   </nav>
 <main>
 <h1><span><%= title %></span></h1>
