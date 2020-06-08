@@ -4,7 +4,13 @@ const Schema = mongoose.Schema;
 const documentSchema = new Schema({
     title: String,
     dateSigned: Date,
-    significance: String
+    dateSignedFormatted: String,
+    significance: String,
+    googleId: String,
+    signers: [{
+        type: Schema.Types.ObjectId,
+        ref: 'Founder'
+    }]
 }, {
     timestamps: true
 });

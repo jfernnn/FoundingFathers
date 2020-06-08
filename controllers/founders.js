@@ -15,6 +15,10 @@ module.exports = {
 
 function index(req, res) {
     Founder.find({}, function(err, founders){
+        founders.forEach(function(f) {
+            f.birthDayFormatted =  (f.birthDay.getUTCMonth() + 1).toString() + "/" + 
+            f.birthDay.getUTCDate() + "/" + f.birthDay.getUTCFullYear().toString()
+        });
         console.log(founders[0].imgURL)
         Document.find({}, function(err, documents){
             res.render('founders/index', {
@@ -46,6 +50,8 @@ function show(req, res) {
     Founder.findById(req.params.id)
      .populate('documentsSigned')
       .exec(function(err, founder){
+        founder.birthDayFormatted =  (founder.birthDay.getUTCMonth() + 1).toString() + "/" + 
+        founder.birthDay.getUTCDate() + "/" + founder.birthDay.getUTCFullYear().toString()
         Document.find({_id: {$nin: founder.documents}}, function(err, documents){  
             res.render(`founders/show`, {
                 title: 'Show Founder',

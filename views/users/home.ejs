@@ -1,5 +1,6 @@
 <%- include('../partials/header') %>
 
+<h2>Founders</h2>
 <section id="new-founders-view">
     <% founders.forEach(function(f){ %>
       <% if(f.googleId == user.googleId) { %>
@@ -14,24 +15,41 @@
               <% } else { %>
                   <div id="mug"><img src=<%= f.imgURL %> class="mugshot"></div>
               <% } %>
-              <br><div id="descriptions">Birthday: <%= f.birthDay %></div>
-              <div id="descriptions">Home State: <%= f.homeState %></div>
+              <div id="home-state"><span>Home State: <%= f.homeState %></span></div>
+              <div id="descriptions">Birthday: <%= f.birthDayFormatted %></div>
               <div id="descriptions"><%= f.bio %></div>
               <% if(f.likes.length > 0) { %>
                   <div id="descriptions">
                       <%= f.likes.length %> like<% if(f.likes.length > 1) { %>s<%}%>
                   </div>
               <% } %>
-              <br><div id="descriptions">
+              <div id="descriptions">
                 <% if(( user ) && ( user.googleId === f.googleId )) { %>
                   <form action="/founders/<%= f.id %>?_method=DELETE"
                     class="delete-form" method="POST">
                     <button type="submit" id="delete-button">X</button>
                   </form>
-                  <br>
                 <% } %>
-              </div>
+              <br></div>
           </div>
+      <% } %>
+    <% }) %>
+</section>
+
+<h2>Documents</h2>
+<section id="docList">
+    <% documents.forEach(function(d) { %>
+      <% if(d.googleId == user.googleId) { %>
+        <div id="one-doc">
+                <div id="doc-title"><%= d.title %></div>
+                <div id="doc-descriptions">
+                    <div id="descriptions">Date Signed: </div>
+                    <div id="descriptions">Historical Significance: </div>
+                    <div id="descriptions"><%= d.dateSignedFormatted %></div>
+                    <div id="descriptions"></divid><%= d.significance %></div>
+                </div>
+                <div>Signers: Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio iusto consectetur corporis, accusamus harum eligendi explicabo aperiam quisquam sequi sint vel incidunt sed, esse adipisci enim? Nostrum quos reprehenderit eum.</div>
+        </div>
       <% } %>
     <% }) %>
 </section>

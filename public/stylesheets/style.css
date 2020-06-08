@@ -24,11 +24,16 @@ nav {
 }
 
 h1 {
+  color: white;
+  text-decoration: overline;
   display: grid;
   justify-content: center;
+  font-size: 40px;
+  font-family: Apple Chancery, cursive;
 }
 
-#Tablee, #achievements-section, #mug {
+
+#profile, #mug {
   display: grid;
   justify-content: center;
 }
@@ -41,15 +46,31 @@ h1 {
   align-items: center;
 }
 
+#new-form {
+  margin: 0 auto;
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center; 
+  width: 190px;
+}
+
+#new-form span {
+  border-style: groove;
+  border-width: 5px;
+  border-radius: 15px;
+  background-image: linear-gradient(rgb(224, 203, 175), rgb(150, 116, 76));
+}
+
 #info {
   margin: 15px 45px;
-  background-color: rgb(224, 203, 175);
+  background-image: linear-gradient(rgb(224, 203, 175), rgb(163, 121, 73));
   border-width: 5px;
   border-color: rgb(80, 40, 22);
   border-style: groove;
-  border-right-color: white;
-  border-bottom-color: white;
 }
+
 
 #docList {
   display: grid;
@@ -60,10 +81,10 @@ h1 {
 
 #one-doc {
   margin: 20px 20px 20px 20px;
-  background-color: white;
+  background-image: linear-gradient(rgb(224, 203, 175), rgb(150, 116, 76));
 }
 
-#descriptions, #doc-title, #founder-name, #home-state, #descriptionshref {
+#descriptions, #doc-title, #founder-name, #home-state, #descriptionshref, #descriptions-heading, #signer-description, #profile-about, #doc-description, .bigMug {
   margin: 0 15px;
   display: flex;
   justify-content: center;
@@ -72,12 +93,34 @@ h1 {
   font-size: 18px;
 }
 
+h2 {
+  text-decoration: overline;
+  display: grid;
+  justify-content: center;
+  color: white;
+}
+
+#selector, #documentId, #achievements-input {
+  display: flex;
+  justify-content: center;
+  text-align: center; 
+}
+
+#selector {
+  margin: 10px auto;
+}
+
+#achievements-input {
+  margin: 10px auto 0 auto;
+  min-height: 30px;
+}
+
 #home-state span {
   padding: 0 8px;
   margin: 0 6px;
 }
 
-#descriptionshref {
+#descriptionshref, #doc-title, #founder-name {
   font-size: 38px;
   border-radius: 4px 4px 0 0;
   height: auto;
@@ -91,6 +134,7 @@ h1 {
 }
 
 #delete-button {
+  margin-top: 5px;
   width: 40px;
   height: 40px;
   background-color: rgb(143, 75, 75);
@@ -101,23 +145,26 @@ h1 {
 #whole-founder {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
 }
 
-#achievements-section, #founders-documents, #Tablee {
+#achievements-section, #founders-documents, #profile {
   justify-content: center;
   background-image: linear-gradient(to bottom right, rgb(161, 140, 93), rgb(224, 203, 175) );
   min-height: 120px;
   margin: 10px;
 }
 
-#Tablee {
-  width: 200%;
-}
-
-#doc-title {
-  font-size: 32px;
+#descriptions-heading {
+  font-size: 22px;
+  border-radius: 4px 4px 0 0;
+  height: auto;
+  margin: 12px 0;
   font-family: Apple Chancery, cursive;
+  background-color: rgb(133, 114, 90);
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  border-style: groove;
 }
 
 #like-section {
@@ -139,12 +186,49 @@ a:hover {
   grid-template-columns: 1fr 2fr;
 }
 
+#profile-info {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+#profile-img {
+  padding-bottom: 8px;
+  margin: 5px auto;
+}
+
+#profile-about {
+  font-size: 38px;
+}
+
+#signer-description span{
+  margin: -8px 0 5px 0;
+  color: white;
+  font-family: Apple Chancery, cursive;
+  font-size: 28px;
+  text-decoration: underline;
+}
+
+#doc-description {
+  font-size: 24px;
+  font-family: Apple Chancery, cursive;
+  margin-bottom: 4px;;
+}
+
+#doc-signer {
+  text-decoration: none;
+  color: black;
+}
+
+#doc-signer:hover {
+  color: white;
+}
+
 .bigMug {
   height: 300px;
   width: 250px;
 }
 
-@media only screen and (min-width: 750px) {
+@media only screen and (min-width: 850px) {
 
   #docList {
     display: grid;
@@ -210,5 +294,13 @@ a:hover {
     border-width: 3px;
     border-top: grey;
     border-left: grey;
+  }
+  #whole-founder, #like-section {
+    margin: 0 150px;
+  }
+
+  #profile {
+    margin-left: 120px;
+    margin-right: 120px;
   }
 }

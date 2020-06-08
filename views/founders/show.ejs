@@ -1,6 +1,7 @@
 <%- include('../partials/header') %>
 
 <section id="like-section">
+
   <% if(user) { %>
     <% var alreadyLiked = false; %>
     <% founder.likes.forEach(function(l) { %>
@@ -23,48 +24,62 @@
   <% } else { %>
     <div>Log in to Like</div>
   <% } %>
+  
+</section>
+
+
+<section id="profile">
+
+  <div id="founder-name"><%= founder.name %></div>
+  <% if(founder.wasPresident === "Yes") { %>
+    <div id="descriptions">He was a President</div>
+  <% } else { %>
+  <% } %>
+
+  <section id="profile-info">
+    <section id="profile-img">
+      <% if(founder.imgURL == undefined) { %>
+        <div id="bigMug"><img src="https://cdn.shopify.com/s/files/1/0200/0548/products/414GA_1296x.png?v=1482263956" class="bigMug"></div>
+      <% } else { %>
+        <div id="bigMug"><img src=<%= founder.imgURL %> class="bigMug"></div>
+      <% } %>
+    </section>
+
+    <section id="profile-desc">
+      <br><br><div id="descriptions">Birthday:</div>
+      <div id="profile-about"><%= founder.birthDayFormatted %></div>
+      <br><br><div id="descriptions">Home State:</div>
+      <div id="profile-about"><%= founder.homeState %></div>
+    </section> 
+  </section>
+  <div id="descriptions"><%= founder.bio %></div>
+      <a href="/founders/<%= founder.id %>/edit" id="selector"><button>Edit</button></a>
 </section>
 
 <section id="whole-founder">
-  <section id="Tablee">
-    <br><div id="founder-name"><%= founder.name %></div>
-    <% if(founder.wasPresident === "Yes") { %>
-      <div id="descriptions">He was a President</div>
-    <% } else { %>
-    <% } %>
-    <% if(founder.imgURL == undefined) { %>
-        <div id="bigMug"><img src="https://cdn.shopify.com/s/files/1/0200/0548/products/414GA_1296x.png?v=1482263956" class="bigMug"></div>
-    <% } else { %>
-        <div id="bigMug"><img src=<%= founder.imgURL %> class="bigMug"></div>
-    <% } %>
-    <div id="descriptions">Birthday: <%= founder.birthDay %></div>
-    <div id="descriptions">Home State: <%= founder.homeState %></div>
-    <div id="descriptions">Bio: <%= founder.bio %></div>
-    <a href="/founders/<%= founder.id %>/edit" id="selector"><button>Edit</button></a>
-  </section>
-  <div></div>
   <section id="founders-documents">
-    <form id="add-doc-to-founder" action="/founders/<%= founder.id %>/documents" method="POST">
+    <div id="descriptions-heading">Documents Signed</div>
+    <section id="documents-signed">
+        <% founder.documentsSigned.forEach(function(d) { %>
+          <div id="doc-description"><%= d.title %></div>
+        <% }) %>
+    </section>  
+    <hr><form id="add-doc-to-founder" action="/founders/<%= founder.id %>/documents" method="POST">
       <select name="documentId" id="selector">
         <%- documents.map(d => `<option value="${d._id}">${d.title}</option>)`).join('') %>
       </select>
       <button type="submit" id="selector">Add the Document to the Signer</button>
     </form>
-
-    <section id="documents-signed">
-      <% founder.documentsSigned.forEach(function(d) { %>
-        <div id="descriptions"><%= d.title %></div>
-      <% }) %>
-    </section>
   </section>
   
   <section id="achievements-section">
-    <% founder.achievements.forEach(function(f) { %>
-      <div><%= f.achievement %><button>Edit</button></div>
-    <% }) %>
-    <form id="new-achievements" action="/founders/<%= founder.id %>/achievements" method="POST">
-      <input type="text" name="achievement">
-      <br><input type="submit" value="Add Personal Achievement">
+    <div id="descriptions-heading">Personal Achievements</div>
+      <% founder.achievements.forEach(function(f) { %>
+        <div id="descriptions"><%= f.achievement %><button>Edit</button></div>
+      <% }) %>
+    <hr><form id="new-achievements" action="/founders/<%= founder.id %>/achievements" method="POST">
+      <input type="text" name="achievement" id="achievements-input">
+      <input type="submit" value="Add Personal Achievement" id="selector">
     </form>
   </section>
 </section>

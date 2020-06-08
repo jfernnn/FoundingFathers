@@ -1,4 +1,5 @@
 const Founder = require('../models/founder');
+const Document = require('../models/document')
 
 module.exports = {
     index
@@ -6,10 +7,17 @@ module.exports = {
 
 function index(req, res) {
     Founder.find({}, function(err, founders) {
-        res.render('users/home', {
-            title: 'Home',
-            founders,
-            user: req.user
-        })
+        Document.find({}, function(err, documents) {
+            documents.forEach(function(d) {
+                d.dateSignedFormatted = (d.dateSigned.getUTCMonth() + 1).toString() + "/" + 
+                d.dateSigned.getUTCDate() + "/" + d.dateSigned.getUTCFullYear().toString()
+            });
+            res.render('users/home', {
+                title: 'Home',
+                founders,
+                documents,
+                user: req.user
+            })
+        });
     })
 }

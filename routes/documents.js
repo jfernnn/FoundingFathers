@@ -6,6 +6,7 @@ router.get('/documents', documentsCtrl.index);
 router.get('/documents/new', isLoggedIn, documentsCtrl.new);
 router.post('/documents', documentsCtrl.create);
 router.post('/founders/:id/documents', documentsCtrl.addSigner);
+router.delete('/documents/:id', documentsCtrl.delete);
 
 function isLoggedIn(req, res, next) {
     if ( req.isAuthenticated() ) return next();

@@ -14,22 +14,27 @@
             <div id="mug"><img src=<%= f.imgURL %> class="mugshot"></div>
         <% } %>
         <div id="home-state"><span>Home State: <%= f.homeState %></span></div>
-        <hr><div id="descriptions">Birthday: <%= f.birthDay %></div>
-        <div id="descriptions"><%= f.bio %></div>
+        <div id="descriptions">Birthday: <%= f.birthDayFormatted %></div>
+        <% const idx = f.bio.search(/[.]/g) %>
+        <% const shortBio = f.bio.substring(0, idx+1) %>
+        <% if(idx === -1) { %>
+            <div id="descriptions"><%= f.bio %></div>
+        <% } else { %>
+            <div id="descriptions"><%= shortBio %></div>
+        <% } %>
         <% if(f.likes.length > 0) { %>
             <div id="descriptions">
                 <%= f.likes.length %> like<% if(f.likes.length > 1) { %>s<%}%>
             </div>
         <% } %>
-        <br><div id="descriptions">
+        <div id="descriptions">
           <% if(( user ) && ( user.googleId === f.googleId )) { %>
             <form action="/founders/<%= f.id %>?_method=DELETE"
               class="delete-form" method="POST">
               <button type="submit" id="delete-button">X</button>
             </form>
-            <br>
           <% } %>
-        </div>
+        <br></div>
     </div>
   <% }) %>
 </section>
