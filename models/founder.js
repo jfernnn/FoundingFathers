@@ -14,7 +14,10 @@ const founderSchema = new Schema({
         required: true
     },
     wasPresident: String,
-    birthDay: Date,
+    birthDay: {
+        type: Date,
+        required: true
+    },
     birthDayFormatted: String,
     homeState: String,
     bio: String,

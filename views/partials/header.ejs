@@ -10,21 +10,21 @@
 </head>
 <body>
   <nav>
-    <ul class="right">
+    <span><ul class="right">
       <li>
         <% if (user) { %>
-          <span>Hi <%= user.name %>!</span>
+          <span style="color: white;">Hi <%= user.name %>!</span>
           <a href="/logout"><span>Log Out</span></a>
         <% } else { %>
           <a href="/auth/google"><span>Login with Google</span></a>
         <% } %>
       </li>
-    </ul>
-    <a href="/"><span>Founders</span></a>
-    <a href="/documents"><span>Documents</span></a>
-    <a href="/users"><span>Home</span></a>
-    <a href="/founders/new"><span>Add Founder</span></a>
-    <a href="/documents/new"><span>Add Document</span></a>
+    </ul></span>
+    <span><a href="/"><span>Founders</span></a></span>
+    <span><a href="/documents"><span>Documents</span></a></span>
+    <span><a href="/users"><span>Home</span></a></span>
+    <span><a href="/founders/new"><span>Add Founder</span></a></span>
+    <span><a href="/documents/new"><span>Add Document</span></a></span>
   </nav>
 <main>
 <h1><span><%= title %></span></h1>

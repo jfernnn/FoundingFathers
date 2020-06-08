@@ -50,6 +50,7 @@ function show(req, res) {
     Founder.findById(req.params.id)
      .populate('documentsSigned')
       .exec(function(err, founder){
+        
         founder.birthDayFormatted =  (founder.birthDay.getUTCMonth() + 1).toString() + "/" + 
         founder.birthDay.getUTCDate() + "/" + founder.birthDay.getUTCFullYear().toString()
         Document.find({_id: {$nin: founder.documents}}, function(err, documents){  
