@@ -54,9 +54,11 @@
   </section>
 
   <div id="descriptions"><%= founder.bio %></div>
-  <% if(user.googleId === founder.googleId) { %>
-  <a href="/founders/<%= founder.id %>/edit" id="selector"><button>Edit</button></a>
-  <% } %>
+  <% if(user) { %>
+    <% if(user.googleId === founder.googleId) { %>
+        <a href="/founders/<%= founder.id %>/edit" id="selector"><button>Edit</button></a>
+    <% } %>
+<% } %>
 </section>
 
 <section id="whole-founder">

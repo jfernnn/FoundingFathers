@@ -4,7 +4,7 @@ A historical fact app about the Founding Fathers of the United States. Each foun
 
 ## Screenshots
 
-![Screen](https://imgur.com/a/axsIC7x)
+![Screen](https://imgur.com/q4cdWNW)
 
 ## Technologies Used
 
@@ -21,5 +21,7 @@ A historical fact app about the Founding Fathers of the United States. Each foun
 
 ## Next Steps
 
-- Add Delete functionality for Personal Achievements
+- Add Delete/Edit functionality for Personal Achievements
+- Add a search bar
+- Some more CSS
 - Add IceBox Items
