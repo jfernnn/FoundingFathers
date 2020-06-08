@@ -4,37 +4,41 @@
   <% founders.forEach(function(f){ %>
     <div id="info">
       <a href="/founders/<%= f.id %>"><div id="descriptionshref"><%= f.name %></div></a>
+      <% if(f.likes.length > 0) { %>
+        <div id="amount-of-likes">
+          <%= f.likes.length %> like<% if(f.likes.length > 1) { %>s<% } %>
+        </div>
+        <% if(f.wasPresident === "Yes") { %>
+          <div id="pres-description">He was a President</div>
+        <% } %>
+      <% } else { %>
         <% if(f.wasPresident === "Yes") { %>
           <div id="descriptions">He was a President</div>
-        <% } else { %>
         <% } %>
-        <% if(f.imgURL == undefined) { %>
-            <div id="mug"><img src="https://cdn.shopify.com/s/files/1/0200/0548/products/414GA_1296x.png?v=1482263956" class="mugshot"></div>
-        <% } else { %>
-            <div id="mug"><img src=<%= f.imgURL %> class="mugshot"></div>
+      <% } %>
+
+      <% if(f.imgURL == undefined) { %>
+        <div id="mug"><img src="https://cdn.shopify.com/s/files/1/0200/0548/products/414GA_1296x.png?v=1482263956" class="mugshot"></div>
+      <% } else { %>
+        <div id="mug"><img src=<%= f.imgURL %> class="mugshot"></div>
+      <% } %>
+      <div id="home-state"><span>From <%= f.homeState %></span></div>
+      <div id="descriptions">Birthday: <%= f.birthDayFormatted %></div>
+      <% const idx = f.bio.search(/[.]/g) %>
+      <% const shortBio = f.bio.substring(0, idx+1) %>
+      <% if(idx === -1) { %>
+        <div id="descriptions"><%= f.bio %></div>
+      <% } else { %>
+        <div id="descriptions"><%= shortBio %></div>
+      <% } %>
+      <div id="descriptions">
+        <% if(( user ) && ( user.googleId === f.googleId )) { %>
+          <form action="/founders/<%= f.id %>?_method=DELETE"
+          class="delete-form" method="POST">
+            <button type="submit" id="delete-button">X</button>
+          </form>
         <% } %>
-        <div id="home-state"><span>Home State: <%= f.homeState %></span></div>
-        <div id="descriptions">Birthday: <%= f.birthDayFormatted %></div>
-        <% const idx = f.bio.search(/[.]/g) %>
-        <% const shortBio = f.bio.substring(0, idx+1) %>
-        <% if(idx === -1) { %>
-            <div id="descriptions"><%= f.bio %></div>
-        <% } else { %>
-            <div id="descriptions"><%= shortBio %></div>
-        <% } %>
-        <% if(f.likes.length > 0) { %>
-            <div id="descriptions">
-                <%= f.likes.length %> like<% if(f.likes.length > 1) { %>s<%}%>
-            </div>
-        <% } %>
-        <div id="descriptions">
-          <% if(( user ) && ( user.googleId === f.googleId )) { %>
-            <form action="/founders/<%= f.id %>?_method=DELETE"
-              class="delete-form" method="POST">
-              <button type="submit" id="delete-button">X</button>
-            </form>
-          <% } %>
-        <br></div>
+      <br></div>
     </div>
   <% }) %>
 </section>

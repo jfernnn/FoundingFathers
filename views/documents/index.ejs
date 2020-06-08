@@ -1,32 +1,32 @@
 <%- include('../partials/header') %>
 
 <section id="docList">
-    <% documents.forEach(function(d) { %>
-        <div id="one-doc">
-            <div id="doc-title"><%= d.title %></div>
-            <div id="doc-descriptions">
-                <div id="descriptions"><b>Date Signed: </b></div>
-                <div id="descriptions"><b>Historical Significance: </b></div>
-                <div id="descriptions"><%= d.dateSignedFormatted %></div>
-                <div id="descriptions"></divid><%= d.significance %></div>
-            </div>
-            <hr>
-            <section id="signers">
-                <div id="signer-description"><span>Signers</span></div>
-                <% d.signers.forEach(function(s) { %>
-                  <div id="descriptions"><span><a href="../founders/<%= s.id %>" id="doc-signer"><%= s.name %></a>, <%= s.homeState %></span></div>
-                <% }) %>
-            </section> 
-            <div id="descriptions">
-            <% if(( user ) && ( user.googleId === d.googleId )) { %>
-                <form action="/documents/<%= d.id %>?_method=DELETE"
-                  class="delete-form" method="POST">
-                  <button type="submit" id="delete-button">X</button>
-                </form>
-            <% } %>
-            </div>
-        </div>
-    <% }) %>
+  <% documents.forEach(function(d) { %>
+    <div id="one-doc">
+      <div id="doc-title"><%= d.title %></div>
+      <div id="doc-descriptions">
+        <div id="descriptions" style="text-decoration: underline;"><b>Date Signed: </b></div>
+        <div id="descriptions" style="text-decoration: underline;"><b>Historical Significance: </b></div>
+        <div id="descriptions"><%= d.dateSignedFormatted %></div>
+        <div id="descriptions"></divid><%= d.significance %></div>
+      </div>
+      <hr>
+      <section id="signers">
+        <div id="signer-description"><span>Signers</span></div>
+        <% d.signers.forEach(function(s) { %>
+          <div id="descriptions"><span><a href="../founders/<%= s.id %>" id="doc-signer"><%= s.name %></a>, <%= s.homeState %></span></div>
+        <% }) %>
+      </section> 
+      <div id="descriptions">
+        <% if(( user ) && ( user.googleId === d.googleId )) { %>
+          <form action="/documents/<%= d.id %>?_method=DELETE"
+          class="delete-form" method="POST">
+            <button type="submit" id="delete-button">X</button>
+          </form>
+        <% } %>
+      </div>
+    </div>
+  <% }) %>
 </section>
 
 <%- include('../partials/footer') %>

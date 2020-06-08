@@ -52,19 +52,23 @@
       <div id="profile-about"><%= founder.homeState %></div>
     </section> 
   </section>
+
   <div id="descriptions"><%= founder.bio %></div>
-      <a href="/founders/<%= founder.id %>/edit" id="selector"><button>Edit</button></a>
+  <a href="/founders/<%= founder.id %>/edit" id="selector"><button>Edit</button></a>
+
 </section>
 
 <section id="whole-founder">
+
   <section id="founders-documents">
     <div id="descriptions-heading">Documents Signed</div>
     <section id="documents-signed">
         <% founder.documentsSigned.forEach(function(d) { %>
           <div id="doc-description"><%= d.title %></div>
+          <hr style="width:50%">
         <% }) %>
     </section>  
-    <hr><form id="add-doc-to-founder" action="/founders/<%= founder.id %>/documents" method="POST">
+    <form id="add-doc-to-founder" action="/founders/<%= founder.id %>/documents" method="POST">
       <select name="documentId" id="selector">
         <%- documents.map(d => `<option value="${d._id}">${d.title}</option>)`).join('') %>
       </select>
@@ -74,14 +78,17 @@
   
   <section id="achievements-section">
     <div id="descriptions-heading">Personal Achievements</div>
-      <% founder.achievements.forEach(function(f) { %>
-        <div id="descriptions"><%= f.achievement %><button>Edit</button></div>
+    <ul>  
+      <% founder.achievements.forEach(function(a) { %>
+        <li id="achievement-desc"><%= a.achievement %></li>
       <% }) %>
+    </ul>
     <hr><form id="new-achievements" action="/founders/<%= founder.id %>/achievements" method="POST">
-      <input type="text" name="achievement" id="achievements-input">
+      <input type="text" name="achievement" id="achievements-input" placeholder="Achievement">
       <input type="submit" value="Add Personal Achievement" id="selector">
     </form>
   </section>
+  
 </section>
 
 

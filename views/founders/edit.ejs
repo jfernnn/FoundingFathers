@@ -1,19 +1,19 @@
 <%- include('../partials/header') %>
 
 <form id="edit-form" action="/founders/<%= founder.id %>?_method=PUT" method="POST">
-    <label>Name:</label>
-    <input type="text" value="<%= founder.name %>" name="name">
-    <label>Home State:</label>
-    <input type="text" value="<%= founder.homeState %>" name="homeState">
-    <label>Was He a President:</label>
-    <input type="text" name="wasPresident">
-    <label>Birthday:</label>
-    <input type="date" name="birthDay">
-    <label>Bio:</label>
-    <input type="text" value="<%= founder.bio %>" name="bio">
-    <br><label>Image URL:</label>
+  <label>Name:</label>
+  <input type="text" value="<%= founder.name %>" name="name">
+  <label>Home State:</label>
+  <input type="text" value="<%= founder.homeState %>" name="homeState">
+  <label>Was He a President:</label>
+  <input type="text" name="wasPresident">
+  <label>Birthday:</label>
+  <input type="date" name="birthDay">
+  <label>Bio:</label>
+  <input type="text" value="<%= founder.bio %>" name="bio">
+  <br><label>Image URL:</label>
   <input type="text" name="imgURL">
-    <input type="submit" value="Change Founder">
+  <input type="submit" value="Change Founder">
 </form>
 
 

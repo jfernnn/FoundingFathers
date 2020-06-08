@@ -1,7 +1,7 @@
 const Founder = require('../models/founder');
 
 module.exports = {
-    create
+    create,
 }
 
 function create(req, res) {

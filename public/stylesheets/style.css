@@ -65,7 +65,7 @@ h1 {
 
 #info {
   margin: 15px 45px;
-  background-image: linear-gradient(rgb(224, 203, 175), rgb(163, 121, 73));
+  background-image: linear-gradient(rgb(224, 203, 175), rgb(161, 127, 87));
   border-width: 5px;
   border-color: rgb(80, 40, 22);
   border-style: groove;
@@ -84,12 +84,20 @@ h1 {
   background-image: linear-gradient(rgb(224, 203, 175), rgb(150, 116, 76));
 }
 
-#descriptions, #doc-title, #founder-name, #home-state, #descriptionshref, #descriptions-heading, #signer-description, #profile-about, #doc-description, .bigMug {
+#descriptions, #doc-title, #founder-name, #home-state, #descriptionshref, #descriptions-heading, #signer-description, #profile-about, #doc-description, #pres-description, .bigMug {
   margin: 0 15px;
   display: flex;
   justify-content: center;
   flex-direction: column;
   text-align: center; 
+  font-size: 18px;
+}
+
+#pres-description {
+  margin-top: -26px;
+}
+
+#achievement-desc {
   font-size: 18px;
 }
 
@@ -113,11 +121,20 @@ h2 {
 #achievements-input {
   margin: 10px auto 0 auto;
   min-height: 30px;
+  min-width: auto;
 }
 
 #home-state span {
   padding: 0 8px;
   margin: 0 6px;
+}
+
+#amount-of-likes {
+  margin-right: 10px;
+  display: grid;
+  justify-content: flex-end;
+  font-size: 16px;
+  color: white;
 }
 
 #descriptionshref, #doc-title, #founder-name {
@@ -250,7 +267,6 @@ a:hover {
   }
   
   #info {
-    font-family: Apple Chancery, cursive;
     margin: 25px;
     background-color: rgb(224, 203, 175);
     border-width: 3px;
